@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: rgb(244, 244, 244);
+            border: 1px solid rgb(171, 171, 171);
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .message {
+            background-color: rgb(244, 244, 244);
+            border-left: 2px solid blue;
+            padding: 5px;
+            margin: 5px;
+        }
+
+        .btn {
+            background-color: rgb(43, 43, 255);
+            color: white;
+            padding: 5px;
+            border: 0;
+        }
+
+        .box3 {
+            border: 1px solid rgb(190, 190, 0);
+            background-color: rgb(255, 255, 207);
+        }
+
+        .highlight {
+            background-color: rgb(255, 255, 207);
+
+        }
+
+        .selectedBox {
+            background-color: rgb(255, 218, 224);
+        }
+
+        .selectedMessage {
+            background-color: rgb(228, 255, 228);
+            border-left: 2px solid green;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box ">첫 번째 박스</div>
+    <div class="box ">두 번째 박스</div>
+    <div class="box box3">세 번째 박스</div>
+    <p class="message ">첫 번째 아이템</p>
+    <p class="message ">두 번째 아이템</p>
+    <p class="message ">세 번째 아이템</p>
+    <p class="message ">네 번째 아이템</p>
+    <p class="highlight">하이라이트된 문단입니다.</p>
+    <button class="btn" onclick="clickBoxBtn()">모든 박스 선택</button>
+    <button class="btn" onclick="clickMessageBtn()">모든 아이템 선택</button>
+    <button class="btn" onclick="clickHighlight()">하이라이트 요소들 선택</button>
+
+    <script>
+        const $boxs = document.querySelectorAll('.box');
+        const $messages = document.querySelectorAll('.message');
+
+        const $highLightP = document.querySelector('.highlight');
+        const $highLightB = document.querySelector('.box3');
+
+        function clickBoxBtn() {
+            for (i in $boxs) {
+                $boxs[i].classList.add('selectedBox');
+                $boxs[i].innerHTML = `선택된 박스 ${Number(i) + 1}`;
+            }
+        }
+
+        function clickMessageBtn() {
+            for (i in $messages) {
+                $messages[i].classList.add('selectedMessage');
+                $messages[i].innerHTML = `새로운 아이템 ${Number(i) + 1}`;
+            }
+        }
+
+        function clickHighlight() {
+            $highLightP.innerHTML = $highLightP.innerHTML + '(수정됨)';
+            $highLightB.innerHTML = $highLightB.innerHTML + '(수정됨)';
+            $highLightP.style.backgroundColor = 'rgb(255, 246, 248)';
+            $highLightB.style.backgroundColor = 'rgb(255, 246, 248)';
+        }
+
+
+    </script>
+</body>
+
+</html>

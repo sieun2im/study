@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            background-color: rgb(244, 244, 244);
+            border: 1px solid rgb(171, 171, 171);
+            padding: 10px;
+            margin: 5px;
+            border-radius: 5px;
+        }
+
+        .btn {
+            background-color: rgb(43, 43, 255);
+            color: white;
+            padding: 5px;
+            border: 0;
+        }
+
+        .btn:hover {
+            background-color: navy;
+        }
+
+        .special {
+            background-color: rgb(255, 255, 207);
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <section>
+        <h1 id="title">제목 영역</h1>
+        <div class="box box1">첫 번째 박스</div>
+        <div class="box special">두 번째 박스 (특별)</div>
+        <div class="box">세 번째 박스</div>
+    </section>
+    <section>
+        <ul>
+            <li>첫 번째 목록</li>
+            <li class="special">두 번째 목록 (특별)</li>
+            <li>세 번째 목록</li>
+            <li>네 번째 목록</li>
+        </ul>
+
+    </section>
+    <section>
+        <input id="text">
+        <input id="email">
+        <button class="btn">일반 버튼</button>
+    </section>
+    <button class="btn" onclick="clickTitleBtn()">ID로 선택</button>
+    <button class="btn" onclick="clickBox1Btn()">클래스로 선택</button>
+    <button class="btn" onclick="clickBox1TagBtn()">태그로 선택</button>
+    <button class="btn" onclick="clickSpecialBtn()">특별 클래스 선택</button>
+    <button class="btn" onclick="clickFirstBtn()">첫 번째만 선택</button>
+    <button class="btn" onclick="clickAllBoxBtn()">모든 박스 선택</button>
+    <button class="btn" onclick="click13BoxBtn()">복합 선택자</button>
+    <button class="btn" onclick="clickInputBtn()">입력필드 선택</button>
+
+    <script>
+        const $title = document.getElementById('title');
+        const $box1 = document.getElementsByClassName('box1')[0];
+        const $box1Tag = document.getElementsByTagName('div')[0];
+        const $special = document.querySelectorAll('.special');
+        const $boxs = document.querySelectorAll('.box');
+        const $textInput = document.getElementById('text');
+        const $emailInput = document.getElementById('email');
+
+
+
+        const clickTitleBtn = () => {
+            $title.style.color = 'red';
+            $title.innerHTML = 'ID로 선택된 제목';
+        }
+
+        const clickBox1Btn = () => {
+            console.log($box1)
+            $box1.innerHTML = '클래스로 선택된 박스!';
+            $box1.style.backgroundColor = 'green'
+        }
+
+        const clickBox1TagBtn = () => {
+            $box1Tag.style.borderColor = 'blue';
+            $box1Tag.innerHTML = '태그로 선택된 첫 번째 p 요소!'
+        }
+
+        const clickSpecialBtn = () => {
+            for (let i = 0; i < $special.length; i++) {
+                $special[i].style.fontWeight = 'bold';
+                $special[i].innerHTML = `특별 클래스 ${i + 1}번`;
+            }
+        }
+
+        const clickFirstBtn = () => {
+            $box1.style.backgroundColor = 'skyblue';
+            $box1.innerHTML = '첫 번째 컨테이너의 첫 번째 박스!';
+        }
+
+        const clickAllBoxBtn = () => {
+            for (let i = 0; i < $boxs.length; i++) {
+                $boxs[i].style.backgroundColor = 'pink';
+                $boxs[i].innerHTML = `모든 박스 ${i + 1}번 변경!`;
+            }
+        }
+
+        const click13BoxBtn = () => {
+            for (let i = 0; i < $boxs.length; i++) {
+                if (i !== 1) {
+                    $boxs[i].style.border = '1px dashed green';
+                    $boxs[i].style.backgroundColor = 'rgb(202, 255, 202)';
+                    $boxs[i].innerHTML = `복합 선택자로 선택됨!`;
+                }
+
+            }
+        }
+
+        const clickInputBtn = () => {
+            $textInput.style.backgroundColor = 'rgb(255, 255, 207)';
+            $emailInput.style.backgroundColor = 'skyblue';
+            $textInput.value = 'querySelector로 설정된 값';
+            $emailInput.value = 'test@example.com';
+        }
+    </script>
+</body>
+
+</html>
