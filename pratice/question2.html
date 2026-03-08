@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn {
+            background-color: rgb(43, 43, 255);
+            color: white;
+            padding: 5px;
+            border: 0;
+        }
+
+        #message {
+            border: 1px solid gray;
+            padding: 10px;
+            margin: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <p id="message">
+        첫 번째 문단입니다.
+    </p>
+    <p id="message">
+        두 번째 문단입니다.
+    </p>
+    <p id="message">
+        세 번째 문단입니다.
+    </p>
+    <ul>
+        <li>첫 번째 목록</li>
+        <li>두 번째 목록</li>
+        <li>세 번째 목록</li>
+    </ul>
+
+    <button class="btn" onclick="clickMessageBtn()">모든 문단 선택</button>
+    <button class="btn" onclick="clickLiBtn()">모든 목록 선택</button>
+    <button class="btn" onclick="clickMessage1Btn()">첫 번째 문단만 선택</button>
+    <script>
+        const $message1 = document.getElementById('message');
+        const $p = document.querySelectorAll('p');
+        const $li = document.querySelectorAll('li');
+
+        function clickMessageBtn() {
+            for (key in $p) {
+                $p[key].innerHTML = `선택된 문단${Number(key) + 1}`;
+                $p[key].style.backgroundColor = "#ffeecc";
+            }
+        }
+
+        function clickLiBtn() {
+            for (let i = 0; i < $li.length; i++) {
+                $li[i].innerHTML = `새로운 목록 항목${i + 1}`;
+                $li[i].style.color = '#007bff';
+            }
+        }
+
+        function clickMessage1Btn() {
+            $message1.style.backgroundColor = '#ccffcc';
+            $message1.innerHTML = '첫 번째 문단만 선택되었습니다.'
+        }
+    </script>
+</body>
+
+
+</html>

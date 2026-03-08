@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .btn {
+            background-color: rgb(43, 43, 255);
+            color: white;
+            padding: 5px;
+            border: 0;
+        }
+
+        #box1,
+        #box2 {
+            border: 1px solid gray;
+            padding: 10px;
+            margin-top: 5px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box1">
+        첫 번째 박스입니다.
+    </div>
+    <div id="box2">
+        두 번째 박스입니다.
+    </div>
+    <p id="message">
+        여기에 메시지가 표시됩니다.
+    </p>
+    <button class="btn" onclick="clickBoxBtn1()">첫 번째 박스 선택</button>
+    <button class="btn" onclick="clickBoxBtn2()">두 번째 박스 선택</button>
+    <button class="btn" onclick="clickMessageBtn()">메시지 선택</button>
+
+    <script>
+        const $box1 = document.getElementById('box1');
+        const $box2 = document.getElementById('box2');
+        const $message = document.getElementById('message');
+
+        function clickBoxBtn1() {
+            $box1.innerHTML = "첫 번째 박스를 찾았습니다";
+            $box1.style.backgroundColor = "#ffcccc";
+        }
+
+        function clickBoxBtn2() {
+            $box2.innerHTML = "두 번째 박스를 찾았습니다";
+            $box2.style.backgroundColor = "#ccffcc";
+        }
+
+        function clickMessageBtn() {
+            $message.innerHTML = "ID 요소를 성공적으로 찾았습니다";
+            $message.style.fontSize = '18px';
+            $message.style.fontWeight = 'bold';
+            $message.style.color = '#007bff';
+        }
+
+
+
+    </script>
+</body>
+
+</html>
