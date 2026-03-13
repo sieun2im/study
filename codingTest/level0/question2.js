@@ -34,3 +34,32 @@ function solution(quiz) {
 
 console.log(solution(["3 - 4 = -3", "5 + 6 = 11"]));
 
+
+//머쓱이네 양꼬치 가게는 10인분을 먹으면 음료수 하나를 서비스로 줍니다. 양꼬치는 1인분에 12,000원, 음료수는 2,000원입니다. 정수 n과 k가 매개변수로 주어졌을 때, 양꼬치 n인분과 음료수 k개를 먹었다면 총얼마를 지불해야 하는지 return 하도록 solution 함수를 완성해보세요.
+function solution(n, k) {
+    return n * 12000 + (k - Math.trunc(n / 10)) * 2000;
+}
+
+//정수 n이 주어질 때, n이하의 짝수를 모두 더한 값을 return 하도록 solution 함수를 작성해주세요.
+function solution(n) {
+    let sum = 0;
+    for (let i = 1; i <= n; i++) {
+        if (i % 2 === 0) {
+            sum = sum + i;
+        }
+    }
+    return sum;
+}
+
+
+//등차수열 혹은 등비수열 common이 매개변수로 주어질 때, 마지막 원소 다음으로 올 숫자를 return 하도록 solution 함수를 완성해보세요.
+function solution(common) {
+    if (common[1] !== 1 && common[1] - common[0] === common[2] - common[1]) {
+        return common[common.length - 1] + common[1] - common[0]
+    } else {
+        return common[common.length - 1] * common[1] / common[0]
+    }
+}
+
+console.log(solution([1, 2, 3, 4]));
+console.log(solution([2, 4, 8]));
