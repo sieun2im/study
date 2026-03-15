@@ -66,3 +66,18 @@ function solution(common) {
 function solution(numbers) {
     return numbers.reduce((sum, num) => sum + num) / numbers.length;
 }
+
+//정수가 들어 있는 배열 num_list가 매개변수로 주어집니다. num_list의 원소의 순서를 거꾸로 뒤집은 배열을 return하도록 solution 함수를 완성해주세요
+function solution(num_list) {
+    let answer = [];
+    num_list.forEach((num) => {
+        answer.unshift(num)
+    });
+    return answer;
+
+}
+
+//문자열 my_string이 매개변수로 주어집니다. my_string을 거꾸로 뒤집은 문자열을 return하도록 solution 함수를 완성해주세요.
+function solution(my_string) {
+    return [...my_string].reverse().join("");
+}
