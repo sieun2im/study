@@ -93,3 +93,11 @@ rl.on('line', function (line) {
     str2 = input[1];
     console.log(str1 + str2);
 });
+
+
+function solution(num_list) {
+    var answer=[];
+    answer.push(num_list.filter((n)=>n%2===0).length)
+    answer.push(num_list.filter((n)=>n%2===1).length)
+    return answer;
+}
