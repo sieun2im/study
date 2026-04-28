@@ -53,3 +53,61 @@ function solution(numbers) {
     
     return max*Math.max(...numbers);
 }
+
+
+//첫 번째 분수의 분자와 분모를 뜻하는 numer1, denom1, 두 번째 분수의 분자와 분모를 뜻하는 numer2, denom2가 매개변수로 주어집니다. 두 분수를 더한 값을 기약 분수로 나타냈을 때 분자와 분모를 순서대로 담은 배열을 return 하도록 solution 함수를 완성해보세요.
+function solution(numer1, denom1, numer2, denom2) {
+    let numer= numer1*denom2+numer2*denom1;
+    let denom = denom1*denom2;
+    
+    const GCD = ( a, b ) => {
+        let c = a % b
+         while (b !== 0) {
+             let c = a % b
+             a = b;
+             b = c;
+         }
+        return a
+    }
+    
+    const g = GCD(Math.max(numer, denom),Math.min(numer, denom))
+    
+    let answer = [numer/g, denom/g];
+    return answer;
+}
+
+//1부터 6까지 숫자가 적힌 주사위가 네 개 있습니다. 네 주사위를 굴렸을 때 나온 숫자에 따라 다음과 같은 점수를 얻습니다.
+
+//네 주사위에서 나온 숫자가 모두 p로 같다면 1111 × p점을 얻습니다.
+//세 주사위에서 나온 숫자가 p로 같고 나머지 다른 주사위에서 나온 숫자가 q(p ≠ q)라면 (10 × p + q)2 점을 얻습니다.
+//주사위가 두 개씩 같은 값이 나오고, 나온 숫자를 각각 p, q(p ≠ q)라고 한다면 (p + q) × |p - q|점을 얻습니다.
+//어느 두 주사위에서 나온 숫자가 p로 같고 나머지 두 주사위에서 나온 숫자가 각각 p와 다른 q, r(q ≠ r)이라면 q × r점을 얻습니다.
+//네 주사위에 적힌 숫자가 모두 다르다면 나온 숫자 중 가장 작은 숫자 만큼의 점수를 얻습니다.
+//네 주사위를 굴렸을 때 나온 숫자가 정수 매개변수 a, b, c, d로 주어질 때, 얻는 점수를 return 하는 solution 함수를 작성해 주세요.
+function solution(a, b, c, d) {
+    let num = [a,b,c,d]
+    const numIndex = num.map(n=>num.indexOf(n))
+    const filterNum = num.filter((n, i)=>num.indexOf(n)===i);
+    const num1 = num.filter((n)=>n===filterNum[0]).length;
+    const num2 = num.filter((n)=>n===filterNum[1]).length;
+    
+    let answer=0;
+    if(filterNum.length===1){
+        answer=a*1111
+    }else if(filterNum.length===2){
+        if(num1===1){
+            answer=(10*filterNum[1]+filterNum[0])**2
+        }else if(num1===2){
+            answer=(filterNum[0]+filterNum[1])*Math.abs(filterNum[0]-filterNum[1])
+        }else{
+            answer=(10*filterNum[0]+filterNum[1])**2
+        }
+    }else if(filterNum.length ===3){
+        return num1===2 ? 
+            filterNum[1]*filterNum[2] : num2===2 ? 
+            filterNum[0]*filterNum[2] : filterNum[0]*filterNum[1]
+    }else{
+        answer=Math.min(a,b,c,d)
+    }
+    return answer;
+}
