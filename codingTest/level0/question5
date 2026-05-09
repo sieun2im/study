@@ -205,3 +205,30 @@ function solution(n) {
 function solution(str1, str2) {
     return str1.replace(str2)===str1?2:1;
 }
+
+//어떤 세균은 1시간에 두배만큼 증식한다고 합니다. 처음 세균의 마리수 n과 경과한 시간 t가 매개변수로 주어질 때 t시간 후 세균의 수를 return하도록 solution 함수를 완성해주세요.
+function solution(n, t) {
+    return n*(2**t)
+}
+
+//정수 n이 매개변수로 주어질 때, n의 약수를 오름차순으로 담은 배열을 return하도록 solution 함수를 완성해주세요.
+function solution(n) {
+    var answer = [];
+    for(let i=1; i<=n; i++){
+        if(n%i===0){
+            answer.push(i);
+        }
+    }
+    return answer;
+}
+
+//정수 n이 매개변수로 주어질 때, n 이하의 홀수가 오름차순으로 담긴 배열을 return하도록 solution 함수를 완성해주세요.
+function solution(n) {
+    var answer = [];
+    for(let i =1; i<=n; i++){
+        if(i%2===1){
+            answer.push(i)
+        }
+    }
+    return answer;
+}
