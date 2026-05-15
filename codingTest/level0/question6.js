@@ -29,3 +29,31 @@ function solution(schedules, timelogs, startday) {
     
     return worklogs.filter(log=>log.length===5).length;
 }
+
+
+
+//LV1. 문자열 s를 숫자로 변환한 결과를 반환하는 함수, solution을 완성하세요.
+function solution(s) {
+    var answer = parseInt(s);
+    return answer;
+}
+
+
+//LV1. 정수 n을 입력받아 n의 약수를 모두 더한 값을 리턴하는 함수, solution을 완성해주세요.
+function solution(n) {
+    let sum = 0;
+    for(let i =1; i<=n; i++){
+        if(n%i===0){
+            sum = sum+i;
+        }
+    }
+    return sum;
+}
+
+//LV1. 자연수 N이 주어지면, N의 각 자릿수의 합을 구해서 return 하는 solution 함수를 만들어 주세요.
+function solution(n)
+{
+    var answer = 0;
+    answer = [...String(n)].reduce((a,b)=>Number(a)+Number(b),0)
+    return answer;
+}
