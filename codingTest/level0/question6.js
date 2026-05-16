@@ -57,3 +57,17 @@ function solution(n)
     answer = [...String(n)].reduce((a,b)=>Number(a)+Number(b),0)
     return answer;
 }
+
+//LV1. 자연수 n을 뒤집어 각 자리 숫자를 원소로 가지는 배열 형태로 리턴해주세요. 예를들어 n이 12345이면 [5,4,3,2,1]을 리턴합니다.
+function solution(n) {
+    let answer = String(n).split('').reverse().map(n=>Number(n))
+    return answer;
+}
+
+
+//LV1.함수 solution은 정수 n을 매개변수로 입력받습니다. n의 각 자릿수를 큰것부터 작은 순으로 정렬한 새로운 정수를 리턴해주세요. 예를들어 n이 118372면 873211을 리턴하면 됩니다.
+
+function solution(n) {
+    var answer = parseInt([...String(n)].sort((a,b)=>b-a).join(''))
+    return answer;
+}
