@@ -71,3 +71,26 @@ function solution(n) {
     var answer = parseInt([...String(n)].sort((a,b)=>b-a).join(''))
     return answer;
 }
+
+//LV1.임의의 양의 정수 n에 대해, n이 어떤 양의 정수 x의 제곱인지 아닌지 판단하려 합니다. n이 양의 정수 x의 제곱이라면 x+1의 제곱을 리턴하고, n이 양의 정수 x의 제곱이 아니라면 -1을 리턴하는 함수를 완성하세요.
+function solution(n) {
+    var answer = 0;
+    for(let i =1; i*i<=n;i++){
+        if(i*i===n){
+            answer=(i+1)**2
+        }
+    }
+    return answer?answer:-1;
+}
+
+
+//LV 1. 정수 num이 짝수일 경우 "Even"을 반환하고 홀수인 경우 "Odd"를 반환하는 함수, solution을 완성해주세요.
+function solution(num) {
+    return num%2===0?"Even":"Odd";
+}
+ 
+//LV 1. 정수를 담고 있는 배열 arr의 평균값을 return하는 함수, solution을 완성해보세요.
+function solution(arr) {
+    var answer = arr.reduce((a,b)=>a+b,0);
+    return answer/arr.length;
+}
