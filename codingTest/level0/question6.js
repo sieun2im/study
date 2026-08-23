@@ -112,3 +112,11 @@ function solution(s) {
     var answer = parseInt(s);
     return answer;
 }
+
+//자연수 x를 입력받아 x가 하샤드 수인지 아닌지 검사하는 함수, solution을 완성해주세요.
+function solution(x) {
+    var answer = String(x).split('');
+    const sum = answer.reduce((a,c)=>Number(a)+Number(c),0);
+    
+    return x%sum===0?true:false;
+}
