@@ -621,3 +621,24 @@ function solution(num) {
     
     return num===1?0:answer;
 }
+
+
+/*
+단어 s의 가운데 글자를 반환하는 함수, solution을 만들어 보세요. 단어의 길이가 짝수라면 가운데 두글자를 반환하면 됩니다.
+
+재한사항
+s는 길이가 1 이상, 100이하인 스트링입니다.
+*/
+function solution(s) {
+    var answer = s;
+    let length = s.length;
+    if(length%2===1){
+        length=Math.trunc(length/2);
+        answer=answer.slice(length, length+1);
+    }else{
+        length=length/2-1;
+        answer=answer.slice(length, length+2);
+    }
+    
+    return answer;
+}
